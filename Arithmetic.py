@@ -1,72 +1,72 @@
+"""
+Python Arithmetic Operators
+---------------------------
 
-#Aritmatic Operators
+Arithmetic operators are used to perform mathematical calculations
+such as addition, subtraction, multiplication, division, etc.
 
-"""Addition +
-Substraction -
-Multiplication *
-Expotentaion **
-Division /
-Floor Division  //
-Modulo/Reminder  %"""
+List of Arithmetic Operators
+----------------------------
++   Addition
+-   Subtraction
+*   Multiplication
+**  Exponentiation (Power)
+/   Division
+//  Floor Division
+%   Modulo (Remainder)
+"""
 
-print("Addition",5+3)
-print("Substraction",5-3)
-print("Multiply",5*3)
-print("Expotention",5**3)
-print("Division",5/3)
-print("Floor Division",5//2)
-print("Modulo",5%3)
-
-
-#Practice Question 1
-# 1. Temperature Conversion: Convert 98.6°F to Celsius using: C = (F - 32) × 5/9
-a = 98.6
-C = (a - 32 ) * 5/9
-print(C)
-
-#Practice Question 2
-#Circle Calculations: Calculate area and circumference of a circle with radius 7.5
-#cm
-
-a = int(3.14*7.5**2)
-print("Area of Circle",a)
-
-a = int(2*3.14 * 7.5)
-print("Area of Circum",a)
+# =========================
+# 1. Addition (+)
+# =========================
+print("5 + 3 =", 5 + 3)      # Output: 8
 
 
-#Practice Question 3
-#BMI Calculator: Calculate BMI for weight=68kg, height=1.75m (BMI =
-#weight/height²)
+# =========================
+# 2. Subtraction (-)
+# =========================
+print("5 - 3 =", 5 - 3)      # Output: 2
 
 
-weight = 68
-height = 1.75
-BMI = weight / (height*2)
-print(BMI)
-
-#Practice Question 4
-#4. Time Converter: Convert 5678 seconds to hours, minutes, and remaining
-#seconds
-
-total_seconds = 5678
-
-hours = total_seconds // 3600
-remaining_seconds = total_seconds % 3600
-
-minutes = remaining_seconds // 60
-seconds = remaining_seconds % 60
-
-print(f"{hours} hours, {minutes} minutes, {seconds} seconds")
-
-#Compound Interest: Calculate final amount for ₹5000 at 8% annual interest for 3
-#years: A = P(1 + r/100)^t
-
-P = 5000
-r = 8
-t = 3
-
-A = P * (1 + r/100) ** t
-print(f"Final Amount = ₹{A:.2f}")
+# =========================
+# 3. Multiplication (*)
+# =========================
+print("5 * 3 =", 5 * 3)      # Output: 15
 
 
+# =========================
+# 4. Exponentiation (**)
+# =========================
+# ** is used to calculate power
+print("5 ** 3 =", 5 ** 3)    # Output: 125
+
+
+# =========================
+# 5. Division (/)
+# =========================
+# / always returns a float value
+print("5 / 2 =", 5 / 2)      # Output: 2.5
+
+
+# =========================
+# 6. Floor Division (//)
+# =========================
+# // returns only the integer part (removes decimal)
+print("5 // 2 =", 5 // 2)    # Output: 2
+
+
+# =========================
+# 7. Modulo (%)
+# =========================
+# % returns the remainder
+print("5 % 2 =", 5 % 2)      # Output: 1
+
+
+"""
+Important Notes:
+----------------
+1. Division (/) always returns a float.
+2. Floor division (//) removes the decimal part.
+3. Modulo (%) is useful to check even/odd numbers.
+4. Exponentiation (**) is used for power calculations.
+"""
