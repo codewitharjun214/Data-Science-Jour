@@ -1,4 +1,4 @@
-"""#1
+#1
 
 marks = int(input("enter your marks :"))
 status = "pass"
@@ -63,9 +63,86 @@ if bill_amount > 100:
     discount = bill_amount * 10 / 100
     print("your discount is", discount)
 else:
-    print("no discount")"""
+    print("no discount")
 
-# 21 check number is  palindrome
+# Write a program to check whether a number is a 3-digit number
+
+num = int(input("Enter a number: "))
+
+if (num >= 100 and num <= 999) or (num <= -100 and num >= -999):
+    print("It is a 3-digit number")
+else:
+    print("It is not a 3-digit number")
+
+
+# Write a program to check whether a number is palindrome.
+
+
+text = input("Enter your data: ")
+
+
+if text == text[::-1]:
+    print("Palindrome ")
+else:
+    print("Not a palindrome ")
+
+
+#Write a program to check whether a character is uppercase, lowercase, digit, or special symbol.
+
+value = input("Enter a character: ")
+
+if value >= 'A' and value <= 'Z':
+    print("Uppercase letter")
+
+elif value >= 'a' and value <= 'z':
+    print("Lowercase letter")
+
+elif value >= '0' and value <= '9':
+    print("Digit")
+
+else:
+    print("Special symbol")
+
+
+#Write a program to calculate bonus: Experience ≥ 5 years → 20% bonus Else → 10% bonus
+
+salary = int(input("Enter your salary: "))
+experience = int(input("Enter your experience in years: "))
+
+if experience >= 5:
+    bonus = salary * 20 / 100
+else:
+    bonus = salary * 10 / 100
+
+print("Bonus amount is:", bonus)
+
+
+#Write a program to determine password strength based on length.
+
+password = input("Enter your password: ")
+
+length = len(password)
+
+if length < 6:
+    print("Weak Password")
+elif length < 10:
+    print("Medium Password")
+else:
+    print("Strong Password")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
