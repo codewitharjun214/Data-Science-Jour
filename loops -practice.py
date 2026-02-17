@@ -307,7 +307,7 @@ for i in range(1, 6):
 
 
 # 32️⃣ Prime numbers between 1 and 100.
-for num in range(1, 101):
+for num in range(1, 101-):
     if num > 1:
         is_prime = True
         for i in range(2, num):
@@ -316,3 +316,6 @@ for num in range(1, 101):
                 break
         if is_prime:
             print(num)
+
+
+
