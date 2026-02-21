@@ -7,12 +7,28 @@ employee = {
 
 print("Salary:", employee["salary"])
 
+# for practice ...................
+
+print("Keys:", employee.keys())
+print("Values:", employee.values())
+employee["salary"] = 90000
+print("Salary:", employee["salary"])
+
+#.................................
 
 # ✅ Q2
 student = {"name": "Amit", "age": 21, "cgpa": 7.8}
 
 student["cgpa"] = 8.4
 print("Updated CGPA:", student)
+
+# for practice ...................
+
+student.update(cgpa=9.4)
+print(" second Updated CGPA:", student)
+
+
+# ......................................
 
 
 # ✅ Q3
