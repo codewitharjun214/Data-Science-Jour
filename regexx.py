@@ -91,3 +91,9 @@ number = re.search(r"(\+91)?[6-9]\d{9}", text)
 print("1️⃣4️⃣ Indian Mobile:", number.group())
 
 print("\n✅ All Regex Tasks Completed Successfully!")
+
+#practice
+
+ad = "arjun is my name 22 is my age"
+numbers = re.findall(r"\b\d+\b", ad)
+print("this is my age", numbers)
