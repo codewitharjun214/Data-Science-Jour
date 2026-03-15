@@ -1,5 +1,5 @@
 balance = 5000
-amount = int(input("Enter amount :"))
+amount = int(input("Enter amount to withdraw:"))
 if amount > balance :
     print("Unsufficient balance ")
 
