@@ -18,3 +18,11 @@ def square_cube(n):
 sq, cube = square_cube(3)
 print("Square:", sq)
 print("Cube:", cube)
+
+
+name = "arjun kadam" 
+
+print(name.capitalize())
+print(name.upper())
+print(name.lower())
+print(name.title())
