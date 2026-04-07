@@ -4,7 +4,7 @@
 -- Tool: MySQL Workbench
 -- Goal: Learn how to design tables and apply rules on data
 -- =============================================================================
-DROP DATABASE student_db;
+
 
 -- =============================================================================
 -- SECTION 1: RECAP (FROM DAY 31)
@@ -71,7 +71,6 @@ DROP DATABASE student_db;
 -- USE database_name;
 -- 1code
 
-USE company_db ;
 
 
 -- =============================================================================
@@ -82,7 +81,6 @@ USE company_db ;
 -- BIGINT    -> Large numbers
 -- VARCHAR   -> Text values
 -- DATE      -> Date values
--- CHAR onl add the charecter values
 
 -- Example:
 -- emp_id INT
@@ -106,24 +104,11 @@ USE company_db ;
 -- Example: Create Departments Table
 -- 2code
 
-CREATE TABLE Departments (
-    dept_id INT PRIMARY KEY,
-    dept_name VARCHAR(50),
-    location VARCHAR(50)
-);
 
 
 -- Example: Create Employees Table
 -- 3code
-CREATE TABLE Employees (
-    emp_id INT PRIMARY KEY,
-    emp_name VARCHAR(50),
-    job_title VARCHAR(50),
-    salary DECIMAL(10,2),
-    dept_id INT
-);
 
-SHOW TABLES;
 -- =============================================================================
 -- SECTION 7: ALTER TABLE
 -- =============================================================================
@@ -137,11 +122,9 @@ SHOW TABLES;
 -- SYNTAX:
 -- ALTER TABLE table_name ADD column_name datatype;
 -- 4code (Add email column in employee)
-ALTER TABLE Employees 
-ADD email VARCHAR(100) UNIQUE NOT NULL;
 
-SHOW TABLES;
-SELECT * FROM employees;
+
+
 
 -- QUICK CHEATSHEET MOST WIDELY USED :
 -- Purpose         | Query
@@ -161,7 +144,7 @@ SELECT * FROM employees;
 -- ALTER TABLE table_name MODIFY column_name new_datatype;
 -- 5code (Change the salary datatype from int to Bigint)
 
--- I am not changeing the salary datatype because i used here DECIMAL
+
 
 -- ----------------------------
 -- DROP COLUMN
@@ -171,7 +154,7 @@ SELECT * FROM employees;
 -- ALTER TABLE table_name DROP column_name;
 -- 6code (Drop email column)
 
-ALTER TABLE employees DROP email;
+
 
 -- =============================================================================
 -- SECTION 8: TRUNCATE TABLE
@@ -183,7 +166,7 @@ ALTER TABLE employees DROP email;
 -- TRUNCATE TABLE table_name;
 -- 7code
 
--- i am not truncating now
+
 
 -- =============================================================================
 -- SECTION 9: RENAME TABLE
@@ -196,7 +179,7 @@ ALTER TABLE employees DROP email;
 -- 8code (Rename employees to Staff)
 
 
-RENAME TABLE employees TO Staff;
+
 
 
 -- =============================================================================
@@ -209,7 +192,7 @@ RENAME TABLE employees TO Staff;
 -- DROP TABLE table_name;
 -- 9code (Drop Staff table)
 
-DROP TABLE staff;
+
 
 
 
@@ -240,19 +223,15 @@ DROP TABLE staff;
 
 -- SYNTAX:
 -- 10code
-CREATE TABLE Students (
-    student_id INT PRIMARY KEY,
-    student_name VARCHAR(50),
-    age INT,
-    course VARCHAR(50) 
-);
+
 
 
 -- Few Invalid Example while entering the entries in columns (Duplicate Key):
 -- Lets assume if student_id is my primary key in table :
 -- INSERT INTO students VALUES (1,'Rahul');
 -- INSERT INTO students VALUES (1,'Amit');
-  -- giving error 
+
+
 -- =============================================================================
 -- NOT NULL
 -- =============================================================================
@@ -263,12 +242,6 @@ CREATE TABLE Students (
 -- SYNTAX:
 -- 11code (Course name can never be null)
 
-DROP TABLE students;
-CREATE TABLE Students (
-    student_id INT PRIMARY KEY,
-    student_name VARCHAR(50),
-    course VARCHAR(50) NOT NULL
-);
 
 -- Invalid Example:
 -- INSERT INTO courses VALUES (101,NULL);
@@ -285,8 +258,7 @@ CREATE TABLE Students (
 -- SYNTAX:
 -- 12code (Set email ids to be unique )
 
-ALTER TABLE Students 
-ADD email VARCHAR(100) UNIQUE;
+
 -- Invalid Example:
 -- INSERT INTO users VALUES (1,'test@gmail.com');
 -- INSERT INTO users VALUES (2,'test@gmail.com');
@@ -304,9 +276,8 @@ ADD email VARCHAR(100) UNIQUE;
 -- SYNTAX:
 -- 13code
 
-ALTER TABLE departments
-ADD FOREIGN KEY (dept_id) REFERENCES Departments(dept_id);
 -- Parent table : (Primary key )
+
 
 -- Child Table :(Foreign key)
 
