@@ -8,8 +8,11 @@
 
 -- =====================================================
 -- SAMPLE TABLE
--- =====================================================
+-- =====================================================                        
 -- code1
+use student_db;
+select * from  employees;
+
 
 -- =====================================================
 -- 1) SHOW ONLY FIRST 3 RECORDS
@@ -21,6 +24,9 @@
 -- =====================================================
 -- code3
 
+select * from employees;
+order by salary desc
+limit 2;
 -- =====================================================
 -- 3) LOWEST SALARY EMPLOYEE
 -- =====================================================
@@ -86,8 +92,19 @@
 -- PRACTISE QUESTIONS
 
 -- Get 3rd highest salary
+SELECT * 
+FROM employees 
+WHERE salary = (
+    SELECT DISTINCT salary 
+    FROM employees 
+    ORDER BY salary DESC 
+    LIMIT 2,1
+);
+
 -- Get employees below average salary
--- Show 2 employees from 2nd page
+SELECT * FROM employees WHERE salary < ( SELECT AVG(salary) FROM employees);
+
 -- Find employee with minimum salary using subquery
 
+SELECT * FROM employees WHERE salary = ( SELECT MIN(salary) FROM employees);
 
