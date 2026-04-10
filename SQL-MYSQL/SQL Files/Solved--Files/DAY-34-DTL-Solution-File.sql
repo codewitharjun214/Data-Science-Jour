@@ -37,6 +37,14 @@ FROM employees e
 LEFT JOIN departments d
 ON e.dept_id = d.dept_id;
 
+-- RIGHT JOIN 
+SELECT e.emp_name, d.dept_name
+FROM departments d
+RIGHT JOIN employees e
+ON e.dept_id = d.dept_id; 
+
+-- FULL 
+
 
 -- =============================================================================
 -- SECTION 4: AGGREGATE FUNCTIONS

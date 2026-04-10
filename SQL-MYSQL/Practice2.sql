@@ -112,6 +112,7 @@ ORDER BY salary DESC;
 
 SELECT * FROM employee ;
 
-
+-- ON DELETE CASCADE
+-- ON UPDATE CASCADE
 
 
