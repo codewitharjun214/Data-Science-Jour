@@ -1,3 +1,11 @@
+DROP database company_db;
+DROP database student_db;
+DROP database test_db;
+DROP database ak_private_limited;
+DROP database ak_sql_master_db;
+
+
+
 -- ============================================================================
 -- DAY 37: SQL MINI PROJECT (FINAL MASTER SCRIPT)
 -- PROJECT: Student Performance & Course Analytics System
@@ -31,7 +39,8 @@
 -- To isolate project data and avoid confusion with other databases.
 
 -- code 1 
-
+CREATE DATABASE student_analytics;
+USE student_analytics;
 
 -- code 2
 
@@ -66,7 +75,10 @@
 -- To avoid repeating department names again and again
 
 -- code3
-
+CREATE TABLE department(
+dept_id int primary key auto_increment,
+dept_name VARCHAR(100)
+);
 
 -- --------------------
 -- STUDENTS TABLE
@@ -75,6 +87,14 @@
 -- To ensure students belong only to valid departments
 
 -- code4
+
+CREATE TABLE student(
+student_id int primary key auto_increment,
+student_name VARCHAR(100),
+dept_id INT,
+FOREIGN KEY (dept_id) references department (dept_id)
+);
+
 
 
 
@@ -90,6 +110,11 @@
 
 -- code5
 
+CREATE TABLE courses(
+course_id INT primary key auto_increment,
+course_name VARCHAR(100)
+);
+
 
 
 
@@ -103,8 +128,14 @@
 
 -- code6
 
-
-
+CREATE TABLE enrollments(
+enrollments_id INT primary key auto_increment,
+student_id INT,
+course_id INT ,
+marks INT ,
+FOREIGN KEY (student_id) REFERENCES student(student_id),
+FOREIGN KEY (course_id) REFERENCES courses(course_id)
+);
 
 
 -- ============================================================================
@@ -116,12 +147,43 @@
 
 -- code7
 
+-- Lets insert into department table first 
 
+INSERT INTO department(dept_name) VALUES
+('Computer Science'),
+('Mechanical'),
+('Civil');
 
+SELECT * FROM department;
+-- Lets insert into student table now 
 
+INSERT INTO student(student_name, dept_id) VALUES
+('Arjun', 1),
+('Rohit', 2),
+('Sneha', 1),
+('Priya', 3),
+('Amit', 2);
 
+SELECT * FROM student;
 
+-- Courses
+INSERT INTO courses (course_name) VALUES
+('SQL'),
+('Java'),
+('Python'),
+('Data Structures');
 
+-- Enrollments
+INSERT INTO enrollments (student_id, course_id, marks) VALUES
+(1, 1, 90),
+(1, 2, 85),
+(2, 1, 70),
+(3, 3, 88),
+(4, 2, 60),
+(5, 4, 75),
+(3, 1, 95);
+SELECT * FROM student;
+SELECT * FROM courses;
 
 
 -- ============================================================================
@@ -328,3 +390,4 @@ ORDER BY avg_marks DESC;
 -- ❓ Why subquery is required in Question 11?
 -- ❓ How would this scale for 1 million students?
 
+DROP database student_analytics;
