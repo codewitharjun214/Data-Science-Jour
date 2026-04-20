@@ -385,9 +385,15 @@ ORDER BY avg_marks DESC;
 -- ============================================================================
 
 -- ❓ Why LEFT JOIN instead of INNER JOIN in some queries?
+-- Ans - because if we want all elements of the left side also with the common with right join in that situation we use left join ...
 -- ❓ Why DISTINCT is used with COUNT?
+-- Ans - To ensure only unique values are counted, avoiding duplicates and giving accurate results for analysis.
 -- ❓ When do we use HAVING instead of WHERE?
+-- WHERE filters individual rows before grouping, while HAVING filters grouped data after aggregation and is used with aggregate functions.
+
 -- ❓ Why subquery is required in Question 11?
+-- because we have to calculate the average also with more than average 
 -- ❓ How would this scale for 1 million students?
+
 
 DROP database student_analytics;
