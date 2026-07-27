@@ -589,3 +589,143 @@ CREATE TABLE Orders (
     FOREIGN KEY(customer_id) REFERENCES Customers(customer_id),
     FOREIGN KEY(emp_id) REFERENCES Employess(emp_id)
 );
+
+
+--- joins 
+
+-- Display every employee along with their department name.
+
+select e.first_name,
+d.department_name 
+from employess as e 
+inner join department as d
+on e.department_id = d.department_id ;
+
+-- Display employee name, department name, and department location.
+
+select e.first_name,
+d.department_name,
+d.location
+from employess as e 
+inner join department as d
+on e.department_id = d.department_id;
+
+select concat(e.first_name, "_" ,e.last_name)as employess_name,
+d.department_name,
+d.location
+from employess as e 
+inner join department as d
+on e.department_id = d.department_id;
+
+-- Display all employees working in the IT department.
+
+SELECT e.first_name,
+       d.department_name
+FROM employess AS e
+INNER JOIN department AS d
+ON e.department_id = d.department_id
+WHERE d.department_name = 'IT';
+
+-- Q4
+
+-- Display employee name and salary along with department name.
+
+select e.first_name,e.salary,
+d.department_name
+from employess as e 
+inner join department as d 
+on e.department_id = d.department_id;
+
+-- Q5
+
+-- Display all employees whose department is located in Pune.
+
+select concat(e.first_name,"",e.last_name)as employess_name,
+d.department_name ,
+d.location
+from employess as e 
+inner join department as d 
+on e.department_id = d.department_id 
+where location = "Pune";
+
+-- Q6
+
+-- Display employee name and manager ID along with department name.
+
+select concat(e.first_name,' ',e.last_name)as employess_name,
+e.manager_id,
+d.department_name 
+from employess as e 
+inner join department as d 
+on e.department_id = d.department_id;
+
+
+-- Q7
+
+-- Display employee name and department location sorted by employee name.
+
+
+select concat(e.first_name, ' ', e.last_name)as employess_name,
+d.location
+from employess as e 
+inner join department as d 
+on e.department_id = d.department_id 
+order by employess_name asc;
+
+-- Q8 (Slightly More Challenging)
+
+-- Display the names of employees whose salary is greater than 50,000 along with their department name.
+
+select concat(e.first_name,' ',e.last_name)as employess_name,
+d.department_name,
+e.salary
+from employess as e 
+inner join department as d 
+on e.department_id = d.department_id
+where e.salary > 50000;
+
+-- Now answer Q9
+
+-- Question:
+-- Display all employees who work in the Finance department and earn more than 60,000.
+
+select concat(e.first_name,' ',e.last_name)as employess_name,
+d.department_name,
+e.salary
+from employess as e
+inner join department as d 
+on e.department_id = d.department_id 
+where d.department_name = "Finance" and e.salary > 60000;
+
+
+-- Q10
+
+-- Display the names of all employees along with their department name, but show only those departments where there are more than 2 employees.
+
+SELECT CONCAT(e.first_name, ' ', e.last_name) AS employee_name,
+       d.department_name
+FROM employess AS e
+INNER JOIN department AS d
+ON e.department_id = d.department_id
+WHERE e.department_id IN (
+    SELECT department_id
+    FROM employess
+    GROUP BY department_id
+    HAVING COUNT(*) > 2
+);
+
+-- Q11 (Next Interview Question)
+
+-- Display the department name and the total salary paid in each department. Show only departments where the total salary is greater than 150000.
+
+
+SELECT d.department_name,
+       SUM(e.salary) AS total_salary
+FROM employess AS e
+INNER JOIN department AS d
+ON e.department_id = d.department_id
+GROUP BY d.department_name
+HAVING SUM(e.salary) > 150000;
+
+
+
