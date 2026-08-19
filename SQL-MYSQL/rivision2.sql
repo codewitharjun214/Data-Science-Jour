@@ -1,14 +1,19 @@
-CREATE DATABASE CompanyDB;
-USE CompanyDB;
+drop database companydb;
+
+
+create database companydb;
+use companydb;
+
+-- department id name location
 
 create table department(
-department_id int primary key,
-department_name varchar(50),
+id int primary key,
+name varchar(50),
 location varchar(50)
 );
 
-INSERT INTO Department (department_id, department_name, location)
-VALUES
+insert into department(id,name,location) 
+values
 (101, 'Human Resources', 'Pune'),
 (102, 'Finance', 'Mumbai'),
 (103, 'IT', 'Bengaluru'),
@@ -28,28 +33,32 @@ select * from department;
    
 -- 2 Display only the department names.
    
-   select department_name from department;
+   select name from department;
    
 
 -- 3 Show all departments located in Pune.
   
-  select department_name from department
-   where location = "Pune";
+select name 
+from department 
+where location = "Pune";
 
 -- 4 Show all departments except those in Mumbai.
    
-   select * from department 
-   where location != "Mumbai";
+select *
+from department
+where location != "Mumbai";
    
    
 -- 5 Display unique locations.
 
-   select distinct location from department;
+  select distinct location from department;
    
 
 -- 6 Sort departments alphabetically by department name.
-select department_name from department
-order by department_name asc ;
+
+select name 
+from department 
+order by name desc;
 
 
 -- 7 Sort locations in descending order.
@@ -58,16 +67,15 @@ order by location desc;
 
 -- 8 Find departments whose name starts with 'M'.
 
-SELECT department_name
-FROM Department
-WHERE department_name LIKE 'M%';
+select name from department 
+where name like 'M%';
+
 
 
 -- 9 Find departments whose location ends with 'i'.
 
-select location
-from department
-where location like '%I';
+select location from department 
+where location like '%i';
 
 -- 10 Count the total number of departments.
 select count(*) from department;
@@ -89,7 +97,7 @@ city varchar(50),
 email varchar(50),
 experiance int,
 
-foreign key (department_id)  REFERENCES department(department_id)
+foreign key (department_id)  REFERENCES department(id)
 );
 
 INSERT INTO Employess
@@ -122,25 +130,25 @@ select * from employess;
 
 
 -- Display only first name and salary.
-select first_name,salary from employess;
+select first_name , salary from employess;
 
 
 -- Find employees earning more than ₹50,000.
 select * from employess
-where salary > 50000;
+where salary >= 50000;
 
 
 -- Find employees aged between 25 and 30.
-select * from employess
-where age between 25 and 30 ;
+select * from employess 
+where age between 25 and 30;
 
 
 -- Find female employees.
 select * from employess 
-where gender = "Female";
+where gender = "female";
 
 -- Find employees from Pune.
-select * from Employess 
+select * from employess 
 where city = "Pune";
 
 
@@ -152,13 +160,11 @@ where first_name like 'A%';
 
 -- Find employees hired after 1 Jan 2022.
 
-select * from employess 
-where hire_date > '2022-1-1';
+select * from employess where hire_date > '2022-1-1';
 
 
 -- Display unique cities.
-select distinct city
-from employess ;
+select distinct city from employess;
 
 -- Count total employees.
 select count(*) from employess;
