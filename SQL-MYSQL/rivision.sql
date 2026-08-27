@@ -7,67 +7,81 @@ USE RIVISION;
 
 -- create table
 
-CREATE TABLE student(
+create table student(
 id int primary key,
-name varchar(50),
-marks int not null,
+name varchar (50),
+marks int(50),
 city varchar(50)
 );
 
 select * from student;
 
 insert into student
-(id,name,marks,city)
 values
 (1,"Arjun",95,"Pune"),
 (2,"Shyam",85,"Mumbai"),
 (3,"Ram",82,"Noida"),
 (4,"Shiv",75,"Hydrabad");
 
+select * from student;
+
 alter table student
 add column grade varchar(50) not null;
 
-UPDATE student
-SET grade = 'A'
-WHERE id = 1;
+select * from student;
 
-UPDATE student
-SET grade = 'A'
-WHERE id = 2;
+update student 
+set grade = "A"
+where id = 1;
 
-UPDATE student
-SET grade = 'B'
-WHERE id = 3;
+update student 
+set grade = "A"
+where id = 2;
 
-UPDATE student
-SET grade = 'C'
-WHERE id = 4;
+update student
+set grade = "B"
+where id = 3;
+
+update student
+set grade = "C"
+where id = 4;
 
 select * from student;
 
 select city from student;
 
-select * from student where city = "pune";
+select * from student
+where city = "Pune";
 
-select * from student where marks > 80 ;
+select * from student 
+where marks >= 80;
 
-select * from student where marks > 80 and city = "pune";
+select * from student 
+where marks >= 80 and city = "Pune";
 
-select * from student where marks > 90 or city = "Pune";
+select * from student 
+where marks >= 90 and city = "Pune"; 
 
-select * from student where marks between 80 and 90 ;
+select * from student 
+where marks between 80 and 90;
 
-select * from student where city In ("Pune","Mumbai");
+select * from student 
+where city in ("Pune","Mumbai");
 
-select * from student where city not in ("Noida","pune");
+select * from student 
+where city not in ("Noida","Pune");
 
-select* from student where marks > 75 limit 2;
+select * from student
+where marks > 75 limit 3;
 
-select * from student order by city asc;
+select * from student
+order by city asc;
 
-select * from student order by marks desc limit 2;
+select * from student 
+order by marks desc limit 2;
 
-select * from student order by id desc;
+select * from student 
+order by id desc;
 
 select min(marks) from student;
 
